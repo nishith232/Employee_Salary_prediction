@@ -4,12 +4,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import os
+import sys
+
+# Ensure the project root directory is on the Python path.
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+if BASE_DIR not in sys.path:
+    sys.path.insert(0, BASE_DIR)
 
 from src.data_prep import load_and_preprocess
 from src.model import load_model, predict
 
-# Get the absolute path of the current script
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODEL_PATH = os.path.join(BASE_DIR, "model", "salary_model.pkl")
 DATA_PATH = os.path.join(BASE_DIR, "data", "adult.csv")
 
